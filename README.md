@@ -18,3 +18,17 @@
   
 ## Скриншоты:
   ![Example](Screenshots/Example.jpg)
+  
+  ![Font](Screenshots/Font.jpg)
+  
+  ![About](Screenshots/About.jpg)
+  
+  ![Menu](Screenshots/Menu.jpg)
+  
+  ![MenuFile](Screenshots/MenuFile.jpg)
+  
+  ![MenuChange](Screenshots/MenuChange.jpg)
+  
+  ![StatusBar](Screenshots/StatusBar.jpg)
+  
+  ![Saving](Screenshots/Saving.jpg)
