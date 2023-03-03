@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Notepad));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menu_file = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_file_new_file = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,7 +45,6 @@
             this.menu_pravka_timedate = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_spravka = new System.Windows.Forms.ToolStripMenuItem();
             this.manu_spravka_about = new System.Windows.Forms.ToolStripMenuItem();
-            this.manu_spravka_sendOtz = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.st_bar_rws_clmms = new System.Windows.Forms.ToolStripStatusLabel();
             this.st_bar_decoding = new System.Windows.Forms.ToolStripStatusLabel();
@@ -183,8 +183,7 @@
             // menu_spravka
             // 
             this.menu_spravka.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.manu_spravka_about,
-            this.manu_spravka_sendOtz});
+            this.manu_spravka_about});
             this.menu_spravka.Name = "menu_spravka";
             this.menu_spravka.Size = new System.Drawing.Size(81, 24);
             this.menu_spravka.Text = "Справка";
@@ -192,14 +191,9 @@
             // manu_spravka_about
             // 
             this.manu_spravka_about.Name = "manu_spravka_about";
-            this.manu_spravka_about.Size = new System.Drawing.Size(211, 26);
+            this.manu_spravka_about.Size = new System.Drawing.Size(224, 26);
             this.manu_spravka_about.Text = "О программе";
-            // 
-            // manu_spravka_sendOtz
-            // 
-            this.manu_spravka_sendOtz.Name = "manu_spravka_sendOtz";
-            this.manu_spravka_sendOtz.Size = new System.Drawing.Size(211, 26);
-            this.manu_spravka_sendOtz.Text = "Отправить отзыв";
+            this.manu_spravka_about.Click += new System.EventHandler(this.onAboutClock);
             // 
             // statusStrip1
             // 
@@ -251,6 +245,7 @@
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Notepad";
             this.Text = "Notepad";
@@ -279,7 +274,6 @@
         private System.Windows.Forms.ToolStripMenuItem menu_pravka_cut;
         private System.Windows.Forms.ToolStripMenuItem manu_pravka_copy;
         private System.Windows.Forms.ToolStripMenuItem manu_pravka_paste;
-        private System.Windows.Forms.ToolStripMenuItem manu_spravka_sendOtz;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel st_bar_rws_clmms;
         private System.Windows.Forms.ToolStripStatusLabel st_bar_decoding;

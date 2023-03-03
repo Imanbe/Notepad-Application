@@ -52,8 +52,11 @@
     <Compile Include="FontSettings.Designer.cs">
       <DependentUpon>FontSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Notepad.Backend.cs">
+    <Compile Include="AboutProgramm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutProgramm.Designer.cs">
+      <DependentUpon>AboutProgramm.cs</DependentUpon>
     </Compile>
     <Compile Include="Notepad.cs">
       <SubType>Form</SubType>
@@ -63,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutProgramm.resx">
+      <DependentUpon>AboutProgramm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FontSettings.resx">
       <DependentUpon>FontSettings.cs</DependentUpon>
     </EmbeddedResource>
@@ -77,6 +83,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -90,6 +97,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\кружка2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\кружка21.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

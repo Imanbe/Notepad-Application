@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FontSettings));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.fontBox = new System.Windows.Forms.ComboBox();
@@ -40,7 +41,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(28, 380);
+            this.label1.Location = new System.Drawing.Point(75, 317);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 20);
             this.label1.TabIndex = 0;
@@ -50,7 +51,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(77, 410);
+            this.label2.Location = new System.Drawing.Point(124, 347);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(218, 48);
             this.label2.TabIndex = 1;
@@ -115,7 +116,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(471, 426);
+            this.button1.Location = new System.Drawing.Point(477, 368);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(135, 37);
             this.button1.TabIndex = 5;
@@ -127,18 +128,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 503);
+            this.ClientSize = new System.Drawing.Size(632, 423);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.colorBox);
             this.Controls.Add(this.styleBox);
             this.Controls.Add(this.fontBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.MaximumSize = new System.Drawing.Size(650, 550);
-            this.MinimumSize = new System.Drawing.Size(650, 550);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(650, 470);
+            this.MinimumSize = new System.Drawing.Size(650, 0);
             this.Name = "FontSettings";
-            this.Text = "л";
-            //this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.onFormClosing);
+            this.Text = "Формат";
             this.ResumeLayout(false);
             this.PerformLayout();
 

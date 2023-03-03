@@ -19,7 +19,8 @@ namespace Note
         private int _fontSize = 0;
         private System.Drawing.FontStyle _fontStyle = FontStyle.Regular;
         private System.Drawing.Color _fontColor = Color.Black;
-        private FontSettings fontSetts = new FontSettings();
+        private FontSettings fontSetts;
+        private AboutProgramm aboutProgramm;
 
         // menu_file
         //
@@ -29,6 +30,14 @@ namespace Note
         {
             InitializeComponent();
             Init();
+            fontSetts = new FontSettings();
+            aboutProgramm = new AboutProgramm();
+            fontSetts.MaximizeBox = false;
+            fontSetts.MinimizeBox = false;
+            aboutProgramm.MaximizeBox = false;
+            aboutProgramm.MinimizeBox = false;
+            openFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
+            saveFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
         }
 
         private void Init()
@@ -104,16 +113,6 @@ namespace Note
             }
             UpdateTextWithTitle();
         }
-        private void UpdateTextWithTitle()
-        {
-            if (filename != string.Empty)
-            {
-                Text = filename + " - Notepad";
-            } else
-            {
-                Text = "Безымяннный - Notepad";
-            }
-        }
 
         private void SaveUnsavedFile()
         {
@@ -127,18 +126,8 @@ namespace Note
             }
         }
 
-        private void Save(object sender, EventArgs e)
-        {
-            SaveFile(filename); 
-        }
-
-        private void SaveAs(object sender, EventArgs e)
-        {
-            SaveFile("");
-        }
-
         //
-        //menu_pravka
+        // Copy/Paste functions
         //
 
         private void CopyText()
@@ -177,8 +166,18 @@ namespace Note
         }
 
         //
+        // Event functions
         //
-        //
+
+        private void Save(object sender, EventArgs e)
+        {
+            SaveFile(filename);
+        }
+
+        private void SaveAs(object sender, EventArgs e)
+        {
+            SaveFile("");
+        }
         private void textBoxChanging(object sender, EventArgs e)
         {
             StrRawsCount();
@@ -243,7 +242,41 @@ namespace Note
             fontSetts.Close();
             Application.Exit();
         }
-        
+
+        private void onPrintClick(object sender, EventArgs e)
+        {
+            PrintDocument printDocument = new PrintDocument();
+            printDocument.PrintPage += PrintPageHandler;
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.Document = printDocument;
+            if (printDialog.ShowDialog() == DialogResult.OK)
+                printDialog.Document.Print(); // печатаем
+        }
+
+        //
+        // Help Functions
+        //
+
+        private void StrRawsCount()
+        {
+            string text = textBox.Text;
+            int str = 1, raws = 0;
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (text.Length == 0)
+                {
+                    break;
+                }
+                raws++;
+                if (text[i] == '\n')
+                {
+                    raws = 0;
+                    str++;
+                }
+            }
+            st_bar_rws_clmms.Text = "стр " + str.ToString() + ", стлб " + raws.ToString();
+        }
+
         private void onTextChanged()
         {
             if (!isFileChanged)
@@ -253,32 +286,26 @@ namespace Note
             }
         }
 
-
-
-        private void onPrintClick(object sender, EventArgs e)
-        {
-
-            // объект для печати
-            PrintDocument printDocument = new PrintDocument();
-
-            // обработчик события печати
-            printDocument.PrintPage += PrintPageHandler;
-
-            // диалог настройки печати
-            PrintDialog printDialog = new PrintDialog();
-
-            // установка объекта печати для его настройки
-            printDialog.Document = printDocument;
-
-            // если в диалоге было нажато ОК
-            if (printDialog.ShowDialog() == DialogResult.OK)
-                printDialog.Document.Print(); // печатаем
-        }
-
         private void PrintPageHandler(object sender, PrintPageEventArgs e)
         {
-            // печать строки result
             e.Graphics.DrawString(textBox.Text, textBox.Font, Brushes.Black, 0, 0);
+        }
+
+        private void UpdateTextWithTitle()
+        {
+            if (filename != string.Empty)
+            {
+                Text = filename + " - Notepad";
+            }
+            else
+            {
+                Text = "Безымяннный - Notepad";
+            }
+        }
+
+        private void onAboutClock(object sender, EventArgs e)
+        {
+            aboutProgramm.ShowDialog();
         }
     }
 }
